@@ -26,15 +26,15 @@ app.use("/product", productController);
 app.use("/upload", uploadController);
 
 // setup frontend  to deploy
-app.use(express.static(path.join(__dirname,"./client/build")));
-app.get("*",(req,res)=>{
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", (req, res) => {
   res.sendFile(
-    path.join(__dirname,'./client/build/index.html'),
-    function(err){
-      res.status(500).send(err)
+    path.resolve(__dirname, "./client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
     }
-  )
-})
+  );
+});
 
 // start server
 app.listen(process.env.PORT, () =>
