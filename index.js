@@ -7,7 +7,7 @@ const productController = require("./controllers/productController");
 const uploadController = require("./controllers/uploadContrroller");
 const app = express();
 const PORT = process.env.PORT || 5000;
-const path = require("path");
+// const path = require("path");
 
 //DB connection
 mongoose.set("strictQuery", false);
@@ -26,15 +26,15 @@ app.use("/product", productController);
 app.use("/upload", uploadController);
 
 // setup frontend  to deploy
-app.use(express.static(path.join(__dirname,"./client/build")));
-app.get("*",(req,res)=>{
-  res.sendFile(
-    path.join(__dirname,'./client/build/index.html'),
-    function(err){
-      res.status(500).send(err)
-    }
-  )
-})
+// app.use(express.static(path.join(__dirname,"./client/build")));
+// app.get("*",(req,res)=>{
+//   res.sendFile(
+//     path.join(__dirname,'./client/build/index.html'),
+//     function(err){
+//       res.status(500).send(err)
+//     }
+//   )
+// })
 // start server
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port ${PORT}`)
