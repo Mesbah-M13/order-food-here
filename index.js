@@ -6,7 +6,7 @@ const authController = require("./controllers/authController");
 const productController = require("./controllers/productController");
 const uploadController = require("./controllers/uploadContrroller");
 const app = express();
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 const path = require("path");
 
 //DB connection
